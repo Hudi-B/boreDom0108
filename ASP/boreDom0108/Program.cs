@@ -1,4 +1,6 @@
 
+using boreDom0108.Model;
+
 namespace boreDom0108
 {
     public class Program
@@ -6,6 +8,7 @@ namespace boreDom0108
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddDbContext<PostsDbContext>();
 
             // Add services to the container.
 
