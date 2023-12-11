@@ -1,9 +1,11 @@
 import {BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
-import './Style/App.css';
+import '../style/App.css';
 
 function App() {
   return (
-    <div></div>
+    <div>
+      <h1>oldal</h1>
+    </div>
   );
 }
 
