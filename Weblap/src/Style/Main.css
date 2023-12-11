@@ -1,0 +1,39 @@
+body{
+background: red;
+}
+
+.navbar{
+  font-size: large;
+  margin-top: 20%;
+  color: white;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  width: 100vw;
+  padding: 10px;
+  color: white;
+}
+
+.navbuttons{
+  flex-grow: 0;
+}
+
+.content{
+  flex-grow: 1;
+  background-color: aqua;  /*testing*/
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  padding: 10px;
+}
+.nav-link{
+  color: white;
+}
+.smallicon{
+  margin-right: 10px;
+}

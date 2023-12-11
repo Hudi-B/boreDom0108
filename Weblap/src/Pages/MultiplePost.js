@@ -1,9 +1,8 @@
-
-import './style/App.css';
+import '../Style/Main.css';
 
 function App() {
   return (
-    <div></div>
+    <div>HomePage</div>
   );
 }
 

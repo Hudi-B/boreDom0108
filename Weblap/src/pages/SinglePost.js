@@ -1,10 +1,9 @@
-import {BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
-import '../style/App.css';
+import '../Style/Main.css';
 
 function App() {
   return (
     <div>
-      <h1>oldal</h1>
+      <h1>SinglePost</h1>
     </div>
   );
 }
