@@ -5,7 +5,7 @@ import './Style/Main.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCat, faPaintBrush, faRobot, faPersonWalking, faUtensils, faBookAtlas, faLeaf, faMicrochip, faCarSide } from '@fortawesome/free-solid-svg-icons';
 
-import {PostButton} from '/PostButton';
+import PostButton from './PostButton';
 
 import Home from './Pages/MultiplePost';
 import SinglePost from './Pages/SinglePost';
@@ -45,9 +45,8 @@ function App() {
                 </li>
                 ))}
 
-                
-                <li>
-                  {/*<PostButton /> still error*/}
+                <li className='text-center'>
+                  <PostButton />
                 </li>
               </ul>
           </nav>
