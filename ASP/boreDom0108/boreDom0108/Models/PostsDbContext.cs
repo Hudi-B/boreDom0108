@@ -6,6 +6,7 @@ namespace boreDom0108.Models
     {
         public PostsDbContext(DbContextOptions<PostsDbContext> options) : base(options)
         {
+
         }
 
         public DbSet<Posts> Posts { get; set; } 
