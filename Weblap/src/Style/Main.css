@@ -33,3 +33,20 @@
 .smallicon{
   margin-right: 10px;
 }
+.nav-link{
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius:15px;
+}
+
+.nav-link:hover{
+  background-color: rgba(37, 37, 37, 0.9);
+  color: white;
+}
+
+a.nav-link:focus{/*Selected*/
+  font-size: 103%;
+  font-weight:bold;
+  color: white;
+}
