@@ -7,7 +7,7 @@ namespace boreDom0108.Modell
     public class Posts
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         [Required]
         [Column(TypeName = "varchar(30)")]
         public string? Title { get; set; }
