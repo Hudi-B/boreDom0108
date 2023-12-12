@@ -1,13 +1,28 @@
 import {BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
-import './Style/Main.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Style/Main.css';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCat, faPaintBrush, faRobot, faPersonWalking, faUtensils, faBookAtlas, faLeaf, faMicrochip, faCarSide } from '@fortawesome/free-solid-svg-icons';
 
+import {PostButton} from '/PostButton';
 
 import Home from './Pages/MultiplePost';
 import SinglePost from './Pages/SinglePost';
 import CategorizedPost from './Pages/CategorizedPost';
+
+let linkek = [
+  {ID: 'Animals', iconName: faCat},
+  {ID: 'Art', iconName: faPaintBrush},
+  {ID: 'Ai', iconName: faRobot},
+  {ID: 'Fitness', iconName: faPersonWalking},
+  {ID: 'Gastronomy', iconName: faUtensils},
+  {ID: 'History', iconName: faBookAtlas},
+  {ID: 'Nature', iconName: faLeaf},
+  {ID: 'Technology', iconName: faMicrochip},
+  {ID: 'Vehicles', iconName: faCarSide},
+]
+
 
 function App() {
   return (
@@ -15,59 +30,24 @@ function App() {
       <Router>
         <div class="p-2 navbuttons">
           <nav className="navbar">
-              <ul className="navbar-nav">
+              <ul className="navbar-nav px-10">
                 <li className="nav-item active">
                   <Link to={`/`} className="nav-link"> {/*bored bets text takes user home*/}
                     <h1>Y</h1>{/*Icon goes here*/}
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link to={`/Category/Animals`} className="nav-link">
-                    <FontAwesomeIcon className='smallicon' icon={faCat} />Animals
+
+                {linkek.map((link)=>(
+                  <li className="nav-item">
+                  <Link to={`/Category/${link.ID}`} className="nav-link">
+                    <FontAwesomeIcon className='smallicon' icon={link.iconName} />{link.ID}
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link to={`/Category/Art`} className="nav-link">
-                  <FontAwesomeIcon className='smallicon' icon={faPaintBrush} />Art
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to={`/Category/Ai`} className="nav-link">
-                    <FontAwesomeIcon className='smallicon' icon={faRobot} />Ai
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to={`/Category/Fitness`} className="nav-link">
-                    <FontAwesomeIcon  className='smallicon'icon={faPersonWalking} />Fitness
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to={`/Category/Gastronomy`} className="nav-link">
-                    <FontAwesomeIcon  className='smallicon'icon={faUtensils} />Gastronomy
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to={`/Category/History`} className="nav-link">
-                    <FontAwesomeIcon  className='smallicon'icon={faBookAtlas} />History
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to={`/Category/Nature`} className="nav-link">
-                    <FontAwesomeIcon  className='smallicon'icon={faLeaf} />Nature
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to={`/Category/Technology`} className="nav-link">
-                    <FontAwesomeIcon  className='smallicon'icon={faMicrochip} />Technology
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to={`/Category/Vehicles`} className="nav-link">
-                    <FontAwesomeIcon className='smallicon' icon={faCarSide} />Vehicles  
-                  </Link>
-                </li>
+                ))}
+
+                
                 <li>
-                  {/*BUTTON, dont wanna do yet*/}
+                  {/*<PostButton /> still error*/}
                 </li>
               </ul>
           </nav>
