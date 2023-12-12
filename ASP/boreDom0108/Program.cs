@@ -1,5 +1,6 @@
 
 using boreDom0108.Model;
+using boreDom0108.Repositories;
 
 namespace boreDom0108
 {
@@ -9,6 +10,8 @@ namespace boreDom0108
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddDbContext<PostsDbContext>();
+            builder.Services.AddScoped(IPostsInterface, PostsService);
+
 
             // Add services to the container.
 
