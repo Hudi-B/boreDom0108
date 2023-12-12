@@ -37,7 +37,7 @@ namespace boreDom0108.Repositories
             return await result; 
         }
 
-        public async Task<Posts> Posts(CreatePostsDto createPostsDto)
+        public async Task<Posts> Post(CreatePostsDto createPostsDto)
         {
             var posts = new Posts
             {

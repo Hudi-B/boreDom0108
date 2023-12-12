@@ -7,7 +7,7 @@ namespace boreDom0108.Repositories
     {
         Task<IEnumerable<Posts>> Get();
         Task<Posts> GetById(Guid Id);
-        Task<Posts> Posts(CreatePostsDto createPostsDto);
+        Task<Posts> Post(CreatePostsDto createPostsDto);
         Task<Posts> Put(Guid Id,UpdatePostsDto updatePostsDto);
         Task Delete(Guid Id);
     }
