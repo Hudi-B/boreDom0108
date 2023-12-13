@@ -12,6 +12,7 @@ code {
     monospace;
 }
 #root{
-  background-color: rgb(31, 31, 31);
+  background-color: rgb(1, 1, 1);
+  overflow: hidden;
   color: white;
 }

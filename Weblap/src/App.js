@@ -29,8 +29,8 @@ function App() {
   return (
     <div class="d-flex container">
       <Router>
-        <div class="p-2 navbuttons">
-          <nav className="navbar">
+        <div className="p-2 navbuttons">
+          <nav className="navbar preventSelect">
               <ul className="navbar-nav px-10">
                 <li className="nav-item active">
                   <Link to={`/`} className="nav-link"> {/*bored bets text takes user home*/}
@@ -39,8 +39,8 @@ function App() {
                 </li>
 
                 {linkek.map((link)=>(
-                  <li className="nav-item">
-                  <Link to={`/Category/${link.ID}`} className="nav-link">
+                  <li className="nav-item nav-collapse">
+                  <Link to={`/Category/${link.ID}`} className="nav-link my-1">
                     <FontAwesomeIcon className='smallicon' icon={link.iconName} />{link.ID}
                   </Link>
                 </li>

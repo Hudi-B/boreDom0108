@@ -1,5 +1,5 @@
 import '../Style/Main.css';
-import { useParams, NavLink } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 
 function App() {

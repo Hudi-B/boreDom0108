@@ -16,6 +16,8 @@
 
 .navbuttons{
   flex-grow: 0;
+  border-right: 1px rgba(255, 255, 255, 0.5) solid;
+  height: 100vh;
 }
 
 .content{
@@ -26,7 +28,6 @@
   height: 100vh;
   padding: 10px;
   
-  background-color: aqua;  /*testing*/
 }
 .nav-link{
   color: white;
@@ -60,18 +61,25 @@ a.nav-link:focus{
 .postButton{
   width: 170px;
   height: 40px;
+  margin-top: 10px;
   border-radius: 20px;
   color: white;
-  background-color: #1DA1F2;
+  background-color: #093000;
   border-width: 0;
+  float: inline-end;
 }
 .postButton:hover{
-  background-color: #198fd9;
+  background-color: #146d00;
 }
 .postButton:active{
-  background-color: 198fd9;
-  border: #6fc0f2 3px solid;
+  background-color: #0d4900;
 }
 .buttontext:active{
-font-size:16px;
+scale: 1.2;
+}
+
+.preventSelect {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
