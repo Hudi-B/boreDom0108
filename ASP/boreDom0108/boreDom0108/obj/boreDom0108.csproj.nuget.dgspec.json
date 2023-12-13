@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Git\\boreDom0108\\ASP\\boreDom0108\\boreDom0108\\boreDom0108.csproj": {}
+    "C:\\Users\\Balázs\\Documents\\Git\\boreDom0108\\ASP\\boreDom0108\\boreDom0108\\boreDom0108.csproj": {}
   },
   "projects": {
-    "E:\\Git\\boreDom0108\\ASP\\boreDom0108\\boreDom0108\\boreDom0108.csproj": {
+    "C:\\Users\\Balázs\\Documents\\Git\\boreDom0108\\ASP\\boreDom0108\\boreDom0108\\boreDom0108.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Git\\boreDom0108\\ASP\\boreDom0108\\boreDom0108\\boreDom0108.csproj",
+        "projectUniqueName": "C:\\Users\\Balázs\\Documents\\Git\\boreDom0108\\ASP\\boreDom0108\\boreDom0108\\boreDom0108.csproj",
         "projectName": "boreDom0108",
-        "projectPath": "E:\\Git\\boreDom0108\\ASP\\boreDom0108\\boreDom0108\\boreDom0108.csproj",
+        "projectPath": "C:\\Users\\Balázs\\Documents\\Git\\boreDom0108\\ASP\\boreDom0108\\boreDom0108\\boreDom0108.csproj",
         "packagesPath": "C:\\Users\\Balázs\\.nuget\\packages\\",
-        "outputPath": "E:\\Git\\boreDom0108\\ASP\\boreDom0108\\boreDom0108\\obj\\",
+        "outputPath": "C:\\Users\\Balázs\\Documents\\Git\\boreDom0108\\ASP\\boreDom0108\\boreDom0108\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Balázs\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

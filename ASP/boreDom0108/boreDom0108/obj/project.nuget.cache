@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xBzcSYmiH1z7II/XFuKWdl0rXIqdJba07EfjmvNjhA4ReMd1GPyu0YEyb7x++aswzeQYPfDj6yFFedJJz14Msw==",
+  "dgSpecHash": "U5LMj61Um905AIR+cKrF0APZ9snnW0Ut4DzJ1BAIujCU4+B02lHFTAuQDQ+L+l5srwppkuvRpiFaGuvEd5wDfw==",
   "success": true,
-  "projectFilePath": "E:\\Git\\boreDom0108\\ASP\\boreDom0108\\boreDom0108\\boreDom0108.csproj",
+  "projectFilePath": "C:\\Users\\Balázs\\Documents\\Git\\boreDom0108\\ASP\\boreDom0108\\boreDom0108\\boreDom0108.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Balázs\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Balázs\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.14\\microsoft.entityframeworkcore.7.0.14.nupkg.sha512",

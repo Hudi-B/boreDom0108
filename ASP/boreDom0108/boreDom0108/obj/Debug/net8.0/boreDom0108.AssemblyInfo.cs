@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("boreDom0108")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d4fab936e968824871e8dcbb23ed898b5c56e091")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9e6c69f3569a97b4519cdc57103aa99b0de90815")]
 [assembly: System.Reflection.AssemblyProductAttribute("boreDom0108")]
 [assembly: System.Reflection.AssemblyTitleAttribute("boreDom0108")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

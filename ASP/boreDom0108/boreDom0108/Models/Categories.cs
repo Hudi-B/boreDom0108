@@ -7,7 +7,7 @@ namespace boreDom0108.Models
     {
         [Key]
         [Required]
-        public Guid CategoryId { get; set; }
+        public int CategoryId { get; set; }
 
         [Column(TypeName = "varchar(20)")]
         public string? CategoryName { get; set; }

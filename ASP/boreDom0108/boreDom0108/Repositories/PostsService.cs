@@ -42,6 +42,7 @@ namespace boreDom0108.Repositories
                 Title = createPostsDto.Title,
                 Content = createPostsDto.Content,
                 ImageId = createPostsDto.ImageId,
+                CategoryId= createPostsDto.CategoryId,
                 CreatedDate = DateTime.Now,
             };
             await postsDbContext.Posts.AddAsync(posts);

@@ -14,7 +14,8 @@ namespace boreDom0108.Models
         public string? Content { get; set; }
         [Column(TypeName = "varchar(40)")]
         public string? ImageId { get; set; }
-        public Guid CategoryId { get; set; }
+        [Required]
+        public int CategoryId { get; set; }
         public Categories? Category { get; set; }
         public DateTime? CreatedDate { get; set; }
     }
