@@ -1,0 +1,11 @@
+.boxinthemiddel{
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    opacity: 1;
+}
+.bigBox{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+}

@@ -1,11 +1,12 @@
 import {BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Style/Main.css';
+import './Style/Popup.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCat, faPaintBrush, faRobot, faPersonWalking, faUtensils, faBookAtlas, faLeaf, faMicrochip, faCarSide } from '@fortawesome/free-solid-svg-icons';
 
-import PostButton from './PostButton';
+import PostButton from './Components/PostButton';
 
 import Home from './Pages/MultiplePost';
 import SinglePost from './Pages/SinglePost';
