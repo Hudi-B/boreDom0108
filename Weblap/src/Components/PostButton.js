@@ -7,6 +7,7 @@ import {faTimes, faList, faCat, faPaintBrush, faRobot, faPersonWalking, faUtensi
 export default function PostButton() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
 
   const [icon, setIcon] = useState(faQuestion);
@@ -33,9 +34,10 @@ export default function PostButton() {
     const postData = {
       title,
       content,
+      image,
       category,
     };
-  if(title.trim() === "" || content.trim() === "" || category === "") {
+  if(title.trim() === "" || content.trim() === "" || category === "" || image === "") {
     alert("Please fill in all the fields")
   } else {
     console.log(postData) //testing
@@ -64,6 +66,8 @@ export default function PostButton() {
               <input type="text" name='Title' onChange={(e) => setTitle(e.target.value)} />
               <label>Content:</label>
               <input type="text" name='Content' onChange={(e) => setContent(e.target.value)} />
+              <label>Image:</label>
+              <input type="text" name='Image' onChange={(e) => setImage(e.target.value)} />
               <div className="menu">
                 <Popup
                   trigger={<div className='preventSelect'> <FontAwesomeIcon icon={faList}/> Category:  <FontAwesomeIcon id='categoryIcon' icon={icon} /></div>}
