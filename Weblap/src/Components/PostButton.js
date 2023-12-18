@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faTimes, faList, faCat, faPaintBrush, faRobot, faPersonWalking, faUtensils, faBookAtlas, faLeaf, faMicrochip, faCarSide, faQuestion } from '@fortawesome/free-solid-svg-icons';
+import {faFeather, faTimes, faList, faCat, faPaintBrush, faRobot, faPersonWalking, faUtensils, faBookAtlas, faLeaf, faMicrochip, faCarSide, faQuestion } from '@fortawesome/free-solid-svg-icons';
 
 
-export default function PostButton() {
+export default function PostButton( {coll} ) {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [image, setImage] = useState('');
@@ -56,7 +56,7 @@ export default function PostButton() {
 
 }
   return (
-    <Popup trigger={<button className='postButton'><div className='buttontext'>Post</div></button>} modal nested>
+    <Popup trigger={<button className='postButton'>{coll ? <FontAwesomeIcon icon={faFeather}/> : <div className='buttontext'>Post</div>}</button>} modal nested>
       {(close) => (
         <div className='bigBox' onClick={close}>
           <div className='inputBox' onClick={(event) => event.stopPropagation()} style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}>
@@ -78,13 +78,13 @@ export default function PostButton() {
                 >
                    {(close) => (
                   <div className="menu">
-                  {categories.map((categ) => (
-                    <div className="menu-item preventSelect" onClick={() => {
-                      setCategory(categ.name);
-                      valtoztat(categ.iconName);
-                      close();
-                    }}><FontAwesomeIcon className='smallicon' icon={categ.iconName}/>{categ.name}</div>
-                  ))}
+                    {categories.map((categ) => (
+                      <div className="menu-item preventSelect" onClick={() => {
+                        setCategory(categ.name);
+                        valtoztat(categ.iconName);
+                        close();
+                      }}><FontAwesomeIcon className='smallicon' icon={categ.iconName}/>{categ.name}</div>
+                    ))}
                   </div>
                    )}
                 </Popup>

@@ -77,9 +77,17 @@ a.nav-link:focus{
 .buttontext:active{
 scale: 1.2;
 }
+.postButton + .collapsed{
+  width: 30px;
+}
 
 .preventSelect {
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
-  user-select: none; /* Standard syntax */
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none; 
+}
+
+.sidebarList.collapsed {
+  overflow-x: hidden;
+  width: 50px; /* Adjust this to change the width when collapsed */
 }
