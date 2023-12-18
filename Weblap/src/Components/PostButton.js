@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faTimes, faList, faCat, faPaintBrush, faRobot, faPersonWalking, faUtensils, faBookAtlas, faLeaf, faMicrochip, faCarSide } from '@fortawesome/free-solid-svg-icons';
+import {faTimes, faList, faCat, faPaintBrush, faRobot, faPersonWalking, faUtensils, faBookAtlas, faLeaf, faMicrochip, faCarSide, faQuestion } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function PostButton() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [category, setCategory] = useState('');
+
+  const [icon, setIcon] = useState(faQuestion);
+
+  const valtoztat = (newIcon) => {
+    setIcon(newIcon);
+  }
 
   let categories = [
     {name: 'Animals', iconName: faCat},
@@ -29,23 +35,24 @@ export default function PostButton() {
       content,
       category,
     };
-if(title.trim() === "" || content.trim() === "" || category === "") {
-  alert("Please fill in all the fields")
-} else {
-  console.log(postData) //testing
-  try {
-    await fetch("link", {
-      method: "POST",
-      credentials: "include",
-      body: JSON.stringify(postData),
-    });
-  } catch (error) {
-    console.error(error);
-  } 
+  if(title.trim() === "" || content.trim() === "" || category === "") {
+    alert("Please fill in all the fields")
+  } else {
+    console.log(postData) //testing
+    try {
+      await fetch("link", {
+        method: "POST",
+        credentials: "include",
+        body: JSON.stringify(postData),
+      });
+    } catch (error) {
+      console.error(error);
+    } 
 };
-}
-    
 
+
+
+}
   return (
     <Popup trigger={<button className='postButton'><div className='buttontext'>Post</div></button>} modal nested>
       {(close) => (
@@ -59,7 +66,7 @@ if(title.trim() === "" || content.trim() === "" || category === "") {
               <input type="text" name='Content' onChange={(e) => setContent(e.target.value)} />
               <div className="menu">
                 <Popup
-                  trigger={<div className='preventSelect'> <FontAwesomeIcon icon={faList}/> Category </div>}
+                  trigger={<div className='preventSelect'> <FontAwesomeIcon icon={faList}/> Category:  <FontAwesomeIcon id='categoryIcon' icon={icon} /></div>}
                   position="right top"
                   on="click"
                   closeOnDocumentClick
@@ -67,11 +74,12 @@ if(title.trim() === "" || content.trim() === "" || category === "") {
                 >
                    {(close) => (
                   <div className="menu">
-                  {categories.map((category) => (
+                  {categories.map((categ) => (
                     <div className="menu-item preventSelect" onClick={() => {
-                      setCategory(category.name);
+                      setCategory(categ.name);
+                      valtoztat(categ.iconName);
                       close();
-                    }}><FontAwesomeIcon className='smallicon' icon={category.iconName}/>{category.name}</div>
+                    }}><FontAwesomeIcon className='smallicon' icon={categ.iconName}/>{categ.name}</div>
                   ))}
                   </div>
                    )}
