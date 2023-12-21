@@ -77,8 +77,10 @@ a.nav-link:focus{
 .buttontext:active{
 scale: 1.2;
 }
-.postButton + .collapsed{
-  width: 30px;
+
+.postButton.collapsed{
+  width: 50px;
+  height: 50px;
 }
 
 .preventSelect {
@@ -89,5 +91,5 @@ scale: 1.2;
 
 .sidebarList.collapsed {
   overflow-x: hidden;
-  width: 50px; /* Adjust this to change the width when collapsed */
+  width: 50px;
 }

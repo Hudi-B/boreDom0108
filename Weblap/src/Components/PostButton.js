@@ -3,13 +3,11 @@ import Popup from 'reactjs-popup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faFeather, faTimes, faList, faCat, faPaintBrush, faRobot, faPersonWalking, faUtensils, faBookAtlas, faLeaf, faMicrochip, faCarSide, faQuestion } from '@fortawesome/free-solid-svg-icons';
 
-
 export default function PostButton( {coll} ) {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
-
   const [icon, setIcon] = useState(faQuestion);
 
   const valtoztat = (newIcon) => {
@@ -40,7 +38,7 @@ export default function PostButton( {coll} ) {
   if(title.trim() === "" || content.trim() === "" || category === "" || image === "") {
     alert("Please fill in all the fields")
   } else {
-    console.log(postData) //testing
+                          console.log(postData) //testing
     try {
       await fetch("link", {
         method: "POST",
@@ -56,7 +54,7 @@ export default function PostButton( {coll} ) {
 
 }
   return (
-    <Popup trigger={<button className='postButton'>{coll ? <FontAwesomeIcon icon={faFeather}/> : <div className='buttontext'>Post</div>}</button>} modal nested>
+    <Popup trigger={<button className={`postButton ${coll ? 'collapsed' : ''}`}>{coll ? <FontAwesomeIcon icon={faFeather}/> : <div className='buttontext'>Post</div>}</button>} modal nested>
       {(close) => (
         <div className='bigBox' onClick={close}>
           <div className='inputBox' onClick={(event) => event.stopPropagation()} style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}>
