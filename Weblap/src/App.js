@@ -1,10 +1,12 @@
 import {BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Style/Main.css';
-import './Style/Popup.css'
+import './Style/Popup.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faCat, faPaintBrush, faRobot, faPersonWalking, faUtensils, faBookAtlas, faLeaf, faMicrochip, faCarSide } from '@fortawesome/free-solid-svg-icons';
+import { faCat, faPaintBrush, faRobot, faPersonWalking, faUtensils, faBookAtlas, faLeaf, faMicrochip, faCarSide } from '@fortawesome/free-solid-svg-icons';
 
 import PostButton from './Components/PostButton';
 
@@ -12,7 +14,7 @@ import Home from './Pages/MultiplePost';
 import SinglePost from './Pages/SinglePost';
 import CategorizedPost from './Pages/CategorizedPost';
 
-let linkek = [
+let links = [
   {ID: 'Animals', iconName: faCat},
   {ID: 'Art', iconName: faPaintBrush},
   {ID: 'Ai', iconName: faRobot},
@@ -26,38 +28,58 @@ let linkek = [
 
 
 function App() {
+  const [isCollapsed, setCollapsed] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 800) {
+        setCollapsed(true);
+      } else {
+        setCollapsed(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isCollapsed]);
+
   return (
-    <div class="d-flex container">
+    <div className="d-flex container">
       <Router>
-        <div className="p-2 navbuttons">
+        <div className="p-2 navbuttons"> {/* Navigation bar */}
           <nav className="navbar preventSelect">
-              <ul className="navbar-nav px-10">
-                <li className="nav-item active">
-                  <Link to={`/`} className="nav-link"> {/*bored bets text takes user home*/}
-                    <h1>Y</h1>{/*Icon goes here*/}
-                  </Link>
-                </li>
+            <ul className={`navbar-nav px-10 sidebarList ${isCollapsed ? 'collapsed' : ''}`}>
+              <li className="nav-item active">
+                <Link to={`/`} className="nav-link">
+                  <h1>Y</h1>
+                </Link>
+              </li>
 
-                {linkek.map((link)=>(
-                  <li className="nav-item nav-collapse">
+              {links.map((link) => (
+                <li className="nav-item nav-collapse" key={link.ID}>
                   <Link to={`/Category/${link.ID}`} className="nav-link my-1">
-                    <FontAwesomeIcon className='smallicon' icon={link.iconName} />{link.ID}
+                    <FontAwesomeIcon className='smallicon' icon={link.iconName} />
+                    {isCollapsed ? null : link.ID}
                   </Link>
                 </li>
-                ))}
+              ))}
 
-                <li className='text-center'>
-                  <PostButton />
-                </li>
-              </ul>
+              <li className='text-center'>
+                <PostButton coll={isCollapsed} />
+              </li>
+            </ul>
           </nav>
         </div>
-        <div class="p-2 flex-fill content">
+        <div class="p-2 flex-fill content"> {/* Shown pages */}
           <Routes>
-            <Route exact path="/" element={<Home/>} />
-            <Route path="*" element={<Home/>} />
-            <Route exact path="/posts/:postID" element={<SinglePost/>} />
-            <Route exact path="/Category/:category" element={<CategorizedPost/>} />
+            <Route exact path="/" element={<Home />} />
+            <Route path="*" element={<Home />} />
+            <Route exact path="/posts/:postID" element={<SinglePost />} />
+            <Route exact path="/Category/:category" element={<CategorizedPost />} />
           </Routes>
         </div>
       </Router>

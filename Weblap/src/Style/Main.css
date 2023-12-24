@@ -78,8 +78,18 @@ a.nav-link:focus{
 scale: 1.2;
 }
 
+.postButton.collapsed{
+  width: 50px;
+  height: 50px;
+}
+
 .preventSelect {
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
-  user-select: none; /* Standard syntax */
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none; 
+}
+
+.sidebarList.collapsed {
+  overflow-x: hidden;
+  width: 50px;
 }
