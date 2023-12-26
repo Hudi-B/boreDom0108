@@ -13,6 +13,6 @@ code {
 }
 #root{
   background-color: rgb(1, 1, 1);
-  overflow: hidden;
   color: white;
+  width: 100vw;
 }

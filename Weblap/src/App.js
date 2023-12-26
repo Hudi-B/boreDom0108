@@ -74,7 +74,7 @@ function App() {
             </ul>
           </nav>
         </div>
-        <div class="p-2 flex-fill content"> {/* Shown pages */}
+        <div class="p-2 content"> {/* Shown pages */}
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="*" element={<Home />} />

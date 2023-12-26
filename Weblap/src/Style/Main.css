@@ -1,19 +1,16 @@
-
 .navbar{
   font-size: medium;
   margin-top: 20%;
   color: white;
 }
-
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   color: white;
 }
-
 .navbuttons{
   flex-grow: 0;
   border-right: 1px rgba(255, 255, 255, 0.5) solid;
@@ -26,8 +23,8 @@
   justify-content: center;
   align-items: flex-start;
   height: 100vh;
-  padding: 10px;
-  
+
+  overflow: auto;
 }
 .nav-link{
   color: white;
