@@ -10,7 +10,7 @@
     border-radius: 25px;
     min-height: 400px; 
     max-height: 90vh;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(3, 8, 0);
     opacity: 1;
     padding: 16px;
 }
@@ -68,52 +68,51 @@
     height: 150px;
 }
 
-
-
-
-
-
-
-textarea{
-    height: auto;
-    resize: none;
-}
 [type=text], textarea { /*apply style to both text inputs and textareas*/
     background: transparent;
     border: none;
-    width: 80%;
-   margin-left: 10px;
+    width: 100%;
+    height: auto;
+    
+   padding-inline: 10px;
 }
+
+
+textarea{
+    height: 114px;
+    resize: none;   
+    border-top: 1px rgba(0, 0, 0, 0.5) solid;
+
+}
+
 input[type=text]:focus, textarea:focus {
     outline: none;
 }
-.textInput {
-    position: relative;
-    margin-top: 10px;
-}
-.textInput input {
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    word-wrap: break-word;
-}
-.textInput textarea {
-    resize: none;
-}
 
-::placeholder { /* Most modern browsers support this */
+::placeholder {
     color: rgba(0, 0, 0, 0.5);
 }
-::-ms-input-placeholder { /* Edge 12 -18 */
+::-ms-input-placeholder{
     color: rgba(0, 0, 0, 0.5);
 }
 
 
 textarea::-webkit-scrollbar {
     background-color: rgb(88, 88, 88);
+    border-radius: 5px;
+    cursor: crosshair;
 }
-
 textarea::-webkit-scrollbar-thumb {
     background-color: #082c00;
     border-radius: 5px;
+}
+
+
+
+.inputImage{
+    max-width: 50%;
+    height: auto;
+    border: none;
+    margin-bottom: 3px;
+    border-radius: 5%;
 }

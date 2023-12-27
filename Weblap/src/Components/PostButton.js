@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Popup from 'reactjs-popup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faFeather, faTimes, faList, faCat, faPaintBrush, faRobot, faPersonWalking, faUtensils, faBookAtlas, faLeaf, faMicrochip, faCarSide, faQuestion } from '@fortawesome/free-solid-svg-icons';
+import {faFeather, faTimes, faList, faCat, faPaintBrush, faRobot, faPersonWalking, faUtensils, faBookAtlas, faLeaf, faMicrochip, faCarSide, faQuestion, faArrowLeft, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import defaultImage from '../defaultimage.jpg';
 
 export default function PostButton( {coll} ) {
@@ -76,24 +76,24 @@ export default function PostButton( {coll} ) {
           <div className='inputBox' onClick={(event) => event.stopPropagation()} style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}>
             <FontAwesomeIcon onClick={close} className='closeIcon' icon={faTimes} />
             <form className='form' onSubmit={handleSubmit}>
-
-            <div>
-      <input
-        type='file'
-        accept='image/*'
-        ref={fileInput}
-        style={{ display: 'none' }}
-        onChange={handleImageChange}
-      />
-      {imageUrl && (
-        <img
-          src={imageUrl}
-          alt='Selected'
-          style={{ maxWidth: '50%', height: 'auto' }}
-          onClick={() => fileInput.current.click()}
-        />
-      )}
-    </div>
+              <div className='imageInputDiv'>
+                <input
+                  type='file'
+                  accept='image/*'
+                  ref={fileInput}
+                  style={{ display: 'none' }}
+                  onChange={handleImageChange}
+                />
+                {imageUrl && (
+                  <img
+                    src={imageUrl}
+                    alt='Selected'
+                    className='inputImage'
+                    onClick={() => fileInput.current.click()}
+                  />
+                  )}
+                  <p className='preventSelect'><FontAwesomeIcon icon={faArrowUp} /> Click on the picture to select your own</p>
+              </div>
               <div className='szoveg'>
                 <input 
                   type="text" 

@@ -32,7 +32,7 @@ function App() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 800) {
+      if (window.innerWidth < 700) {
         setCollapsed(true);
       } else {
         setCollapsed(false);
@@ -48,10 +48,10 @@ function App() {
   }, [isCollapsed]);
 
   return (
-    <div className="d-flex container">
+    <div className="app">
       <Router>
-        <div className="p-2 navbuttons"> {/* Navigation bar */}
-          <nav className="navbar preventSelect">
+      <div className={`navbuttons  ${isCollapsed ? 'collapsed' : ''}`}> {/* Navigation bar */}
+          <nav className="preventSelect">
             <ul className={`navbar-nav px-10 sidebarList ${isCollapsed ? 'collapsed' : ''}`}>
               <li className="nav-item active">
                 <Link to={`/`} className="nav-link">
@@ -60,7 +60,7 @@ function App() {
               </li>
 
               {links.map((link) => (
-                <li className="nav-item nav-collapse" key={link.ID}>
+                <li className="nav-item" key={link.ID}>
                   <Link to={`/Category/${link.ID}`} className="nav-link my-1">
                     <FontAwesomeIcon className='smallicon' icon={link.iconName} />
                     {isCollapsed ? null : link.ID}
@@ -74,7 +74,7 @@ function App() {
             </ul>
           </nav>
         </div>
-        <div class="p-2 content"> {/* Shown pages */}
+        <div class="content"> {/* Shown pages */}
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="*" element={<Home />} />
