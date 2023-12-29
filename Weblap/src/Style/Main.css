@@ -7,8 +7,8 @@
   border-right: 1px rgba(255, 255, 255, 0.5) solid;
   flex: 1;
   padding: 10px;
-  padding-top: 30px;
-  max-width:300px;
+  padding-top: 50px;
+  max-width:350px;
   display: flex;
   flex-direction: column;
   align-items: end;
@@ -18,6 +18,10 @@
 
 .navbuttons.collapsed{
   flex: 0;
+}
+.navbuttons.oversized{
+  scale: 1.1;
+  transform-origin: top;
 }
 
 .content{

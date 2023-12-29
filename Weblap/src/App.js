@@ -29,13 +29,19 @@ let links = [
 
 function App() {
   const [isCollapsed, setCollapsed] = useState(false);
+  const [isOverSized, setOverSized] = useState(false);
+
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 700) {
         setCollapsed(true);
-      } else {
+      } 
+      else if(window.innerWidth > 1500) {
+        setOverSized(true);
+      }else {
         setCollapsed(false);
+        setOverSized(false);
       }
     };
 
@@ -50,7 +56,7 @@ function App() {
   return (
     <div className="app">
       <Router>
-      <div className={`navbuttons  ${isCollapsed ? 'collapsed' : ''}`}> {/* Navigation bar */}
+      <div className={`navbuttons  ${isCollapsed ? 'collapsed' : ''}  ${isOverSized ? 'oversized' : ''} ` }> {/* Navigation bar */}
           <nav className="preventSelect">
             <ul className={`navbar-nav px-10 sidebarList ${isCollapsed ? 'collapsed' : ''}`}>
               <li className="nav-item active">
