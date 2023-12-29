@@ -3,14 +3,19 @@
     max-width: 600px;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
     padding: 5px;
     margin-bottom: 30px;
     border-bottom: none;
 }
-.post-image{
+
+.image-icon-container {
+    position: relative;
     width: min(500px, 100%);
+  }
+.post-image{
+    width: 100%;
     height: auto;
-    border: none;
     border-radius: 20px;
     margin: auto;
 }
@@ -36,7 +41,7 @@
     height: auto;
     margin: 10px;
     background-color: black;
-    padding: 5px;
+    padding:5px;
     border-radius: 5px;
 
     position: absolute;
@@ -44,6 +49,3 @@
     left: 0;
     z-index: 100;
 }
-.image-icon-container {
-    position: relative;
-  }

@@ -92,7 +92,7 @@ export default function PostButton( {coll} ) {
                     onClick={() => fileInput.current.click()}
                   />
                   )}
-                  <p className='preventSelect'><FontAwesomeIcon icon={faArrowUp} /> Click on the picture to select your own</p>
+                  <p className='preventSelect'  style={{'color': 'gray'}} ><FontAwesomeIcon icon={faArrowUp}/> Click on the picture to select your own</p>
               </div>
               <div className='szoveg'>
                 <input 

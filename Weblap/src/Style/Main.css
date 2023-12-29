@@ -13,6 +13,7 @@
   flex-direction: column;
   align-items: end;
   position: relative;
+  overflow: hidden;
   top: 0;
 }
 
@@ -22,6 +23,7 @@
 .navbuttons.oversized{
   scale: 1.1;
   transform-origin: top;
+  height: auto;
 }
 
 .content{

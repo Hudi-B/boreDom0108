@@ -11,7 +11,6 @@ import { faCat, faPaintBrush, faRobot, faPersonWalking, faUtensils, faBookAtlas,
 import PostButton from './Components/PostButton';
 
 import Home from './Pages/MultiplePost';
-import SinglePost from './Pages/SinglePost';
 import CategorizedPost from './Pages/CategorizedPost';
 
 let links = [
@@ -84,7 +83,6 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="*" element={<Home />} />
-            <Route exact path="/posts/:postID" element={<SinglePost />} />
             <Route exact path="/Category/:category" element={<CategorizedPost />} />
           </Routes>
         </div>
