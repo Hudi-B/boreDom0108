@@ -66,7 +66,7 @@ function App() {
 
               {links.map((link) => (
                 <li className="nav-item" key={link.ID}>
-                  <Link to={`/Category/${link.ID}`} className="nav-link my-1">
+                  <Link to={`/Category/${link.ID}`} className="nav-link">
                     <FontAwesomeIcon className='smallicon' icon={link.iconName} />
                     {isCollapsed ? null : link.ID}
                   </Link>
