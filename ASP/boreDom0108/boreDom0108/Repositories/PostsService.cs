@@ -23,9 +23,14 @@ namespace boreDom0108.Repositories
             }
         }
 
-        public async Task<IEnumerable<Posts>> Get()
+        public async Task<IEnumerable<Posts>> Get(int pageNum = 0)
         {
-            return await postsDbContext.Posts.ToListAsync();
+            int pageSize = 10;
+            var posts = await postsDbContext.Posts
+                .Skip((pageNum) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+            return posts;
         }
 
         public async Task<Posts> GetById(Guid Id)

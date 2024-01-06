@@ -1450,23 +1450,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sbencecsaba\\.nuget\\packages\\": {},
+    "C:\\Users\\Confetti\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sbencecsaba\\Documents\\Git\\boredom0108\\ASP\\boreDom0108\\boreDom0108\\boreDom0108.csproj",
+      "projectUniqueName": "C:\\Users\\Confetti\\Documents\\GitHub\\boreDom0108\\ASP\\boreDom0108\\boreDom0108\\boreDom0108.csproj",
       "projectName": "boreDom0108",
-      "projectPath": "C:\\Users\\sbencecsaba\\Documents\\Git\\boredom0108\\ASP\\boreDom0108\\boreDom0108\\boreDom0108.csproj",
-      "packagesPath": "C:\\Users\\sbencecsaba\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sbencecsaba\\Documents\\Git\\boredom0108\\ASP\\boreDom0108\\boreDom0108\\obj\\",
+      "projectPath": "C:\\Users\\Confetti\\Documents\\GitHub\\boreDom0108\\ASP\\boreDom0108\\boreDom0108\\boreDom0108.csproj",
+      "packagesPath": "C:\\Users\\Confetti\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Confetti\\Documents\\GitHub\\boreDom0108\\ASP\\boreDom0108\\boreDom0108\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\sbencecsaba\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Confetti\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

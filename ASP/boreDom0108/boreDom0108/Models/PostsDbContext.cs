@@ -17,7 +17,8 @@ namespace boreDom0108.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                string conn = "server=mysql.kando-dev.eu; database=boreDomPosts; user=tesztuser; password=tesztuser1234";
+                //string conn = "server=mysql.kando-dev.eu; database=boreDomPosts; user=tesztuser; password=tesztuser1234";
+                string conn = "server=127.0.0.1; database=boreDomPosts; user=root; password=";
 
                 optionsBuilder.UseMySql(conn, ServerVersion.AutoDetect(conn));
             }

@@ -1,22 +1,43 @@
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import '../Style/Main.css';
-import OnePost from '../Components/OnePost';
 import defaultImage from '../defaultimage.jpg';
 
+const OnePost = lazy(() => import('../Components/OnePost'));
+
 function App() {
-  const postData3={title: "test1", content: "test1", image: defaultImage, category: "Animals"};
+  const [items, setItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [page, setPage] = useState(1);
+
+  const fetchData = async () => {
+    setIsLoading(true);
+    const response = await fetch(`https://localhost:7272/apiRoute?page=${page}`);
+    const data = await response.json();
+    setItems(prevItems => [...prevItems, ...data]);
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    fetchData();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleScroll = () => {
+    if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
+    setPage(prevPage => prevPage + 1);
+  };
+
   return (
     <div>
-      <OnePost postData={postData3}/>
-      <OnePost postData={{title: "test2", content: "test2", image: defaultImage, category: "Art"}}  />
-      <OnePost postData={{title: "test3", content: "test3", image: defaultImage, category: "Ai"}}  />
-      <OnePost postData={{title: "test4", content: "test3", image: defaultImage, category: "Ai"}}  />
-      <OnePost postData={{title: "test5", content: "test3", image: defaultImage, category: "Ai"}}  />
-      <OnePost postData={{title: "test6", content: "test3", image: defaultImage, category: "Ai"}}  />
-      <OnePost postData={{title: "test7", content: "test3", image: defaultImage, category: "Ai"}}  />
-      <OnePost postData={{title: "test8", content: "test3", image: defaultImage, category: "Ai"}}  />
-      <OnePost postData={{title: "test9", content: "test3", image: defaultImage, category: "Ai"}}  />
-      </div>
+      {items.map(item => (
+        <Suspense fallback={<div>Loading...</div>}>
+          <OnePost postData={item} />
+        </Suspense>
+      ))}
+      {isLoading && <div>Loading more items...</div>}
+    </div>
   );
-}
+};
 
 export default App;

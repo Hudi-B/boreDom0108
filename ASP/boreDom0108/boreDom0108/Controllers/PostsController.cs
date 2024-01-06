@@ -24,9 +24,9 @@ namespace boreDom0108.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<Posts>> Get()
+        public async Task<ActionResult<Posts>> Get(int pageNum)
         {
-            return StatusCode(201, await postsInterface.Get());
+            return StatusCode(201, await postsInterface.Get(pageNum));
         }
         [HttpGet("{Id}")]
         public async Task<ActionResult<Posts>> GetById(Guid Id)
