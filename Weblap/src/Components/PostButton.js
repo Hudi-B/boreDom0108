@@ -3,6 +3,7 @@ import Popup from 'reactjs-popup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faFeather, faTimes, faList, faCat, faPaintBrush, faRobot, faPersonWalking, faUtensils, faBookAtlas, faLeaf, faMicrochip, faCarSide, faQuestion, faArrowLeft, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import defaultImage from '../defaultimage.jpg';
+import axios from 'axios';
 
 export default function PostButton( {coll} ) {
   const [title, setTitle] = useState('');
@@ -16,7 +17,7 @@ export default function PostButton( {coll} ) {
   const handleImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
       let reader = new FileReader();
-  
+      setImage(event.target.files[0]);
       reader.onloadend = (e) => {
         setImageUrl(reader.result);
       };
@@ -47,14 +48,18 @@ export default function PostButton( {coll} ) {
     const postData = {
       title,
       content,
-      image,
+      imageUrl,
       category,
     };
-  if(title.trim() === "" || content.trim() === "" || category === "" || image === null) {
+  if(title.trim() === "" || content.trim() === "" || category === "" || imageUrl === null) {
     alert("Please fill in all the fields")
   } else {
-                          console.log(postData) //testing
+      console.log(postData) //testing
     try {
+      const formData = new FormData();
+      formData.append('file', image);
+
+      await axios.post('http://localhost:3002/upload', formData);
       await fetch("link", {
         method: "POST",
         credentials: "include",
