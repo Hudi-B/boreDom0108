@@ -27,6 +27,7 @@ namespace boreDom0108.Repositories
         {
             int pageSize = 10;
             var posts = await postsDbContext.Posts
+                .Include(p => p.Category) // test
                 .OrderByDescending(p => p.CreatedDate)
                 .Skip((pageNum) * pageSize)
                 .Take(pageSize)

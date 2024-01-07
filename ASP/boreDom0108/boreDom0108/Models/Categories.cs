@@ -6,10 +6,12 @@ namespace boreDom0108.Models
     public class Categories
     {
         [Key]
-        [Required]
-        public int CategoryId { get; set; }
+        public Guid Id { get; set; }
 
         [Column(TypeName = "varchar(20)")]
         public string? CategoryName { get; set; }
+
+        [Column(TypeName = "varchar(20)")]
+        public string? IconName { get; set; }
     }
 }

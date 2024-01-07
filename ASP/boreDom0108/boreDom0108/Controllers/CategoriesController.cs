@@ -1,4 +1,5 @@
-﻿using boreDom0108.Models;
+﻿using boreDom0108.Dtos;
+using boreDom0108.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -16,11 +17,27 @@ namespace boreDom0108.Controllers
             this.postsDbContext = postsDbContext;
         }
 
-        [HttpGet("{CategoryName}")]
-        public async Task<ActionResult<Categories>> GetByClassName(string categoryName) 
+        [HttpGet]
+        public async Task<IEnumerable<Categories>> Get()
         {
-            var category = postsDbContext.Categories.SingleOrDefaultAsync(x => x.CategoryName.Equals(categoryName));
-            return await category;
+            var categs = await postsDbContext.Categories
+                .ToListAsync();
+            return categs;
+        }
+
+        [HttpPost]
+        public async Task<Categories> Post(CreateCategoryDTO createCategoryDto)
+        {
+            var categ = new Categories
+            {
+                Id = Guid.NewGuid(),
+                CategoryName = createCategoryDto.CategoryName,
+                IconName = createCategoryDto.IconName,
+            };
+            await postsDbContext.Categories.AddAsync(categ);
+            await postsDbContext.SaveChangesAsync();
+
+            return categ;
         }
     }
 }

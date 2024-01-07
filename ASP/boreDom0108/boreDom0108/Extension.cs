@@ -6,8 +6,13 @@ namespace boreDom0108
     {
         public static PostsDto AsDto(this PostsDto postsDto)
         {
-            return new(postsDto.Id, postsDto.Title, postsDto.Content,
-                postsDto.ImageId, postsDto.CategoryId, postsDto.CreatedDate);
+            return new(postsDto.Id, 
+                postsDto.Title, 
+                postsDto.Content,
+                postsDto.ImageId, 
+                postsDto.CategoryId, 
+                postsDto.CreatedDate
+                );
         }
     }
 }
