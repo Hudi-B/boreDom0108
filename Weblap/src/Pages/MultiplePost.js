@@ -1,7 +1,9 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react';
+import React, {useContext, useState, useEffect, Suspense, lazy } from 'react';
 import '../Style/Main.css';
-import defaultImage from '../defaultimage.jpg';
 import axios from 'axios';
+
+
+import { DataContext } from '../Components/CategoriesContext';
 
 
 const OnePost = lazy(() => import('../Components/OnePost'));
@@ -11,6 +13,8 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(0);
 
+  const categories = useContext(DataContext);
+
   const fetchData = async () => {
     setIsLoading(true);
     const response = await axios.get(`https://localhost:7272/APi/posts?pageNum=${page}`, {
@@ -19,7 +23,6 @@ function App() {
       }
     });
     const data = await response.data;
-    console.log(data);
     setItems(prevItems => [...prevItems, ...data]);
     setIsLoading(false);
   };

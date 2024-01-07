@@ -59,8 +59,22 @@ export default function PostButton( {coll} ) {
       const formData = new FormData();
       formData.append('file', image);
 
-      await axios.post('http://localhost:3002/upload', formData);
-      await fetch("link", {
+      // Upload the image to the server
+      await axios.post('http://localhost:3002/upload', formData, {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+      })
+      .then((response) => {
+        //using the response location to set the image url in postData
+        console.log(response.data);
+      });
+
+      // Send the post data to the server
+      await axios.post("https://localhost:7272/api/Posts", {
+        Headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
         method: "POST",
         credentials: "include",
         body: JSON.stringify(postData),

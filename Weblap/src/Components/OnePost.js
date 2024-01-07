@@ -11,7 +11,7 @@ import {faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 
 export default function OnePost({postData}) {
     const [seeText, setSeeText] = useState(false);
-    
+
     let links = [
         {ID: 'Animals', iconName: faCat},
         {ID: 'Art', iconName: faPaintBrush},
@@ -23,7 +23,7 @@ export default function OnePost({postData}) {
         {ID: 'Technology', iconName: faMicrochip},
         {ID: 'Vehicles', iconName: faCarSide},
       ]
-      const icon = links.find(link => link.ID === postData.category).iconName
+      const icon = links.find(link => link.ID === postData.category.categoryName).iconName;
 
     const toggleText = () => {
       setSeeText(!seeText);

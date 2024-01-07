@@ -8,19 +8,20 @@ export const DataProvider = ({ children }) => {
   const [categories, setCategories] = useState(null);
 
   useEffect(() => {
-
-    axios.get('https://localhost:7272/api/Categories', {
-      headers: {
-        'Access-Control-Allow-Origin': '*',
+    const fetchCategories = async () => {
+      try {
+        const response = await axios.get('https://localhost:7272/api/Categories', {
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+          }
+        });
+        setCategories(response.data);
+      } catch (error) {
+        console.error(error);
       }
-    })
-    .then(response => {
-      console.log(response.data);
-      setCategories(response.data);
-    })
-    .catch(error => {
-      console.error(error);
-    });
+    };
+
+    fetchCategories();
   }, []);
 
   return (

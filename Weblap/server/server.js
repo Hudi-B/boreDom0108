@@ -1,10 +1,12 @@
 const express = require('express');
 const multer = require('multer');
+const cors = require('cors');
 
 const path = require('path');
 const { v4: uuidv4 } = require('uuid'); // Import the uuid module
 
 const app = express();
+app.use(cors());
 const PORT = process.env.PORT || 3002;
 
 const storage = multer.diskStorage({

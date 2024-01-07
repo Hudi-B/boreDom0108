@@ -32,16 +32,16 @@ let links = [
 function App() {
   const [isCollapsed, setCollapsed] = useState(false);
   const [isOverSized, setOverSized] = useState(false);
+  
   const categories = useContext(DataProvider);
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 700) {
         setCollapsed(true);
-      } 
-      else if(window.innerWidth > 1500) {
+      } else if (window.innerWidth > 1500) {
         setOverSized(true);
-      }else {
+      } else {
         setCollapsed(false);
         setOverSized(false);
       }
@@ -59,31 +59,33 @@ function App() {
     <DataProvider>
       <div className="app">
         <Router>
-        <div className={`navbuttons  ${isCollapsed ? 'collapsed' : ''}  ${isOverSized ? 'oversized' : ''} ` }> {/* Navigation bar */}
+          <div className={`navbuttons ${isCollapsed ? 'collapsed' : ''} ${isOverSized ? 'oversized' : ''}`}>
+            {/* Navigation bar */}
             <nav className="preventSelect">
               <ul className={`navbar-nav px-10 sidebarList ${isCollapsed ? 'collapsed' : ''}`}>
                 <li className="nav-item active">
                   <Link to={`/`} className="nav-link">
-                      <img src={logo} alt="logo" className={`logo${isCollapsed ? 'collapsed' : ''}`} />
+                    <img src={logo} alt="logo" className={`logo${isCollapsed ? 'collapsed' : ''}`} />
                   </Link>
                 </li>
 
                 {links.map((link) => (
                   <li className="nav-item" key={link.ID}>
                     <Link to={`/Category/${link.ID}`} className="nav-link">
-                      <FontAwesomeIcon className='smallicon' icon={link.iconName} />
+                      <FontAwesomeIcon className="smallicon" icon={link.iconName} />
                       {isCollapsed ? null : link.ID}
                     </Link>
                   </li>
                 ))}
 
-                <li className='text-center'>
+                <li className="text-center">
                   <PostButton coll={isCollapsed} />
                 </li>
               </ul>
             </nav>
           </div>
-          <div className="content"> {/* Shown pages */}
+          <div className="content">
+            {/* Shown pages */}
             <Routes>
               <Route exact path="/" element={<Home />} />
               <Route path="*" element={<Home />} />
