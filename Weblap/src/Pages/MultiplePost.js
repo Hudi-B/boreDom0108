@@ -11,7 +11,7 @@ function App() {
 
   const fetchData = async () => {
     setIsLoading(true);
-    const response = await fetch(`https://localhost:7272/apiRoute?page=${page}`);
+    const response = await fetch(`https://localhost:7272/APi/posts?pageNum=${page}`);
     const data = await response.json();
     setItems(prevItems => [...prevItems, ...data]);
     setIsLoading(false);
