@@ -8,26 +8,20 @@ export const DataProvider = ({ children }) => {
   const [categories, setCategories] = useState(null);
 
   useEffect(() => {
-    (async () => {
-      try {
-        const response = await axios.get('http://localhost:7272/api/Categories', {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          
-          withCredentials: true
-        });
-        if (!response.data || response.data.length === 0) {
-          throw new Error('No data');
-        }
-        setCategories(response.data);
-      } catch (error) {
-        console.error("Error while fetching categories!", error);
+
+    axios.get('https://localhost:7272/api/Categories', {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
       }
-    })();
-    
+    })
+    .then(response => {
+      console.log(response.data);
+      setCategories(response.data);
+    })
+    .catch(error => {
+      console.error(error);
+    });
   }, []);
-  
 
   return (
     <DataContext.Provider value={categories}>

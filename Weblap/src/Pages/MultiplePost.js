@@ -13,8 +13,13 @@ function App() {
 
   const fetchData = async () => {
     setIsLoading(true);
-    const response = await axios.get(`http://localhost:7272/APi/posts?pageNum=${page}`);
+    const response = await axios.get(`https://localhost:7272/APi/posts?pageNum=${page}`, {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      }
+    });
     const data = await response.data;
+    console.log(data);
     setItems(prevItems => [...prevItems, ...data]);
     setIsLoading(false);
   };

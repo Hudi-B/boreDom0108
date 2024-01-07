@@ -63,7 +63,7 @@ function App() {
             <nav className="preventSelect">
               <ul className={`navbar-nav px-10 sidebarList ${isCollapsed ? 'collapsed' : ''}`}>
                 <li className="nav-item active">
-                  <Link to={`/`} className="nav-link wlogo">
+                  <Link to={`/`} className="nav-link">
                       <img src={logo} alt="logo" className={`logo${isCollapsed ? 'collapsed' : ''}`} />
                   </Link>
                 </li>

@@ -13,6 +13,20 @@ namespace boreDom0108
             builder.Services.AddDbContext<PostsDbContext>();
             builder.Services.AddScoped<IPostsInterface, PostsService>();
 
+            var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                        builder =>
+                        {
+                            builder.WithOrigins("*")
+                                    .AllowAnyOrigin()
+                                    .AllowAnyMethod()
+                                    .AllowAnyHeader();
+                        });
+            });
+
+
             // Add services to the container.
 
             builder.Services.AddControllers();
@@ -22,12 +36,18 @@ namespace boreDom0108
 
             var app = builder.Build();
 
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
+            app.UseRouting();
+
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseHttpsRedirection();
 
