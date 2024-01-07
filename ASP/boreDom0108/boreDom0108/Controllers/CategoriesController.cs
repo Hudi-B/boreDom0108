@@ -1,5 +1,6 @@
 ﻿using boreDom0108.Dtos;
 using boreDom0108.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;

@@ -308,3 +308,4 @@ C:\Users\Confetti\Documents\GitHub\boreDom0108\ASP\boreDom0108\boreDom0108\obj\D
 C:\Users\Confetti\Documents\GitHub\boreDom0108\ASP\boreDom0108\boreDom0108\obj\Debug\net8.0\boreDom0108.pdb
 C:\Users\Confetti\Documents\GitHub\boreDom0108\ASP\boreDom0108\boreDom0108\obj\Debug\net8.0\boreDom0108.genruntimeconfig.cache
 C:\Users\Confetti\Documents\GitHub\boreDom0108\ASP\boreDom0108\boreDom0108\obj\Debug\net8.0\ref\boreDom0108.dll
+C:\Users\Confetti\Documents\GitHub\boreDom0108\ASP\boreDom0108\boreDom0108\bin\Debug\net8.0\System.Web.Cors.dll

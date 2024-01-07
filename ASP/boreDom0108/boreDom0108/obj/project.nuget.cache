@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "RJ42Xg4ICbuiGKcyGkVGEngOk5MruobzblqKIAgfVzRfMRtOwHuLnM3y5SFu6CvbjXtumwFeJ59EVYo24iycAQ==",
+  "dgSpecHash": "Tl6Z9AQyJm0O0Vb/0kl5xwvbgT0LmqMbnPFHqgDoLWKoSYyUnfqVSXCpfOo+AJz91e4xFiOj3OylZ8IKTuqvcQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Confetti\\Documents\\GitHub\\boreDom0108\\ASP\\boreDom0108\\boreDom0108\\boreDom0108.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Confetti\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Confetti\\.nuget\\packages\\microsoft.aspnet.cors\\5.3.0\\microsoft.aspnet.cors.5.3.0.nupkg.sha512",
     "C:\\Users\\Confetti\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.14\\microsoft.entityframeworkcore.7.0.14.nupkg.sha512",
     "C:\\Users\\Confetti\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.14\\microsoft.entityframeworkcore.abstractions.7.0.14.nupkg.sha512",
     "C:\\Users\\Confetti\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.14\\microsoft.entityframeworkcore.analyzers.7.0.14.nupkg.sha512",
@@ -34,5 +35,16 @@
     "C:\\Users\\Confetti\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
     "C:\\Users\\Confetti\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.Cors 5.3.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.Cors",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

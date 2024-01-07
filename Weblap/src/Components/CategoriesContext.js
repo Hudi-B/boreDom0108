@@ -1,29 +1,31 @@
 import React, { useState, useEffect } from 'react';
 
+import axios from 'axios';
+
 export const DataContext = React.createContext();
 
 export const DataProvider = ({ children }) => {
   const [categories, setCategories] = useState(null);
 
   useEffect(() => {
-    const fetchCategories = async () => {
+    (async () => {
       try {
-        const response = await fetch('https://localhost:7272/api/Categories', {
-          method: "GET",
-          credentials: "include",
+        const response = await axios.get('http://localhost:7272/api/Categories', {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          
+          withCredentials: true
         });
-        if (!response.ok) { 
-          const message = await response.text();
-          throw new Error(message);
+        if (!response.data || response.data.length === 0) {
+          throw new Error('No data');
         }
-        const categories = await response.json();
-        setCategories(categories);
+        setCategories(response.data);
       } catch (error) {
-        console.error("There was an error!", error);
+        console.error("Error while fetching categories!", error);
       }
-    };
-  
-    fetchCategories();
+    })();
+    
   }, []);
   
 

@@ -14,6 +14,8 @@ import PostButton from './Components/PostButton';
 import Home from './Pages/MultiplePost';
 import CategorizedPost from './Pages/CategorizedPost';
 
+import logo from './Ylogo1280px.png';
+
 let links = [
   {ID: 'Animals', iconName: faCat},
   {ID: 'Art', iconName: faPaintBrush},
@@ -61,8 +63,8 @@ function App() {
             <nav className="preventSelect">
               <ul className={`navbar-nav px-10 sidebarList ${isCollapsed ? 'collapsed' : ''}`}>
                 <li className="nav-item active">
-                  <Link to={`/`} className="nav-link">
-                    <h1>Y</h1>
+                  <Link to={`/`} className="nav-link wlogo">
+                      <img src={logo} alt="logo" className={`logo${isCollapsed ? 'collapsed' : ''}`} />
                   </Link>
                 </li>
 
