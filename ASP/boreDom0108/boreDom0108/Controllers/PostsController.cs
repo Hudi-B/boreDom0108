@@ -28,6 +28,18 @@ namespace boreDom0108.Controllers
         {
             return StatusCode(201, await postsInterface.Get(pageNum));
         }
+        [HttpGet("category/{CategoryName}")]
+        public async Task<ActionResult<List<Posts>>> GetByCategoryName(string CategoryName)
+        {
+            var postsInCategory = await postsInterface.GetByCategoryName(CategoryName);
+
+            if (postsInCategory.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(postsInCategory);
+        }
         [HttpGet("{Id}")]
         public async Task<ActionResult<Posts>> GetById(Guid Id)
         {

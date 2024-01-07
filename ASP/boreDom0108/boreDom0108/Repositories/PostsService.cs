@@ -34,6 +34,15 @@ namespace boreDom0108.Repositories
                 .ToListAsync();
             return posts;
         }
+        public async Task<List<Posts>> GetByCategoryName(string CategoryName)
+        {
+            var postsInCategory = await postsDbContext.Posts
+                .Include(x => x.Category)
+                .Where(x => x.Category.CategoryName.ToLower() == CategoryName.ToLower())
+                .ToListAsync();
+
+            return postsInCategory;
+        }
 
         public async Task<Posts> GetById(Guid Id)
         {
