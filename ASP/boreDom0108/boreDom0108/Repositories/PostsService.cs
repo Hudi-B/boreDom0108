@@ -27,6 +27,7 @@ namespace boreDom0108.Repositories
         {
             int pageSize = 10;
             var posts = await postsDbContext.Posts
+                .OrderByDescending(p => p.CreatedDate)
                 .Skip((pageNum) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();
