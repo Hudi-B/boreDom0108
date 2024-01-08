@@ -43,9 +43,32 @@
     background-color: black;
     padding:5px;
     border-radius: 5px;
-
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0px;
     z-index: 100;
+}
+.post-icon.expand{
+    color: white;
+    right: 0;
+    scale: 0.8;
+    margin: 6px;
+    padding: 7px;
+}
+.post-icon.expand:hover{
+    color: rgb(165, 165, 165);
+}
+.post-icon.expand:active{
+    color: #167b00;
+}
+
+.postButton.belowPost{
+    width: 150px;
+    max-width: 46%;
+    margin: 3px;
+  }
+.postButton.editButton{
+background-color: blue;
+}
+.postButton.deleteButton{
+background-color: rgb(170,0,0);
 }

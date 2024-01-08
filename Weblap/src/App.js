@@ -12,6 +12,7 @@ import { faCat, faPaintBrush, faRobot, faPersonWalking, faUtensils, faBookAtlas,
 import PostButton from './Components/PostButton';
 
 import MultiplePost from './Pages/MultiplePost';
+import SinglePost from './Pages/SinglePost';
 
 import logo from './pictures/Ylogo1280px.png';
 
@@ -89,6 +90,7 @@ function App() {
               <Route exact path="/" element={<MultiplePost />} />
               <Route path="*" element={<MultiplePost />} />
               <Route exact path="/Category/:category" element={<MultiplePost />} />
+              <Route exact path="/Posts/:id" element={<MultiplePost />} />
             </Routes>
           </div>
         </Router>

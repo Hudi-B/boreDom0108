@@ -28,9 +28,6 @@ namespace boreDom0108.Migrations
                     b.Property<string>("CategoryName")
                         .HasColumnType("varchar(20)");
 
-                    b.Property<string>("IconName")
-                        .HasColumnType("varchar(20)");
-
                     b.HasKey("Id");
 
                     b.ToTable("Categories");

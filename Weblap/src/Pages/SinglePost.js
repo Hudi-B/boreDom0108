@@ -5,30 +5,27 @@ import { useParams } from "react-router-dom";
 
 
 const App = () => {
-  const [items, setItems] = useState([]);
+  const [item, setItem] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const param = useParams();
-
+console.log(param);
 
   const fetchData = async () => {
     setIsLoading(true);
     setError(null);
-    setItems([]); // Clear the items state
+    setItem([]); // Clear the items state
   
-  
-    const url = param.category ? 
-    `https://localhost:7272/APi/posts/category/${param.category}` : 
-    'https://localhost:7272/APi/posts';
+  console.log()
 
     try {
-      const response = await axios.get(url, {
+      const response = await axios.get(`https://localhost:7272/api/Posts/${param.id}`, {
         headers: {
           'Access-Control-Allow-Origin': '*',
         }
       });
-      setItems(response.data); // Assuming the data is an array of items
+      setItem(response.data); // Assuming the data is an array of items
     } catch (error) {
       setError(error);
     } finally {
@@ -45,8 +42,8 @@ const App = () => {
     <div>
       {isLoading ? (
         <p>Loading...</p>
-      ) : items.length > 0 ? (
-        items.map(item => <OnePost postData={item} singular={false}/>)
+      ) : item !== null ? (
+        <OnePost postData={item} singular={true}/>
       ) : (
         <p>No posts found.</p>
       )}

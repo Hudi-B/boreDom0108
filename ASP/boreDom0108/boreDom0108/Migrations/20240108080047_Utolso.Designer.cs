@@ -11,8 +11,8 @@ using boreDom0108.Models;
 namespace boreDom0108.Migrations
 {
     [DbContext(typeof(PostsDbContext))]
-    [Migration("20231213072902_boredomposts")]
-    partial class boredomposts
+    [Migration("20240108080047_Utolso")]
+    partial class Utolso
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,14 +24,14 @@ namespace boreDom0108.Migrations
 
             modelBuilder.Entity("boreDom0108.Models.Categories", b =>
                 {
-                    b.Property<int>("CategoryId")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("CategoryName")
                         .HasColumnType("varchar(20)");
 
-                    b.HasKey("CategoryId");
+                    b.HasKey("Id");
 
                     b.ToTable("Categories");
                 });
@@ -42,8 +42,8 @@ namespace boreDom0108.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("Content")
                         .IsRequired()
