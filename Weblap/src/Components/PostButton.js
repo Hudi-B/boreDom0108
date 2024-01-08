@@ -1,8 +1,13 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import Popup from 'reactjs-popup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faFeather, faTimes, faList, faCat, faPaintBrush, faRobot, faPersonWalking, faUtensils, faBookAtlas, faLeaf, faMicrochip, faCarSide, faQuestion, faArrowLeft, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import defaultImage from '../defaultimage.jpg';
+
+
+import { DataContext } from './CategoriesContext';
+
+
 import axios from 'axios';
 
 export default function PostButton( {coll} ) {
@@ -25,10 +30,8 @@ export default function PostButton( {coll} ) {
       reader.readAsDataURL(event.target.files[0]);
     }
   };
-
-  const valtoztat = (newIcon) => {
-    setIcon(newIcon);
-  }
+let imageName = '';
+  const categ = useContext(DataContext);
 
   let categories = [
     {name: 'Animals', iconName: faCat},
@@ -42,19 +45,18 @@ export default function PostButton( {coll} ) {
     {name: 'Vehicles', iconName: faCarSide},
   ]
 
+  const valtoztat = (newIcon, categoryName) => {
+    setIcon(newIcon);
+    setCategory(categ.find(x => x.categoryName === categoryName).id);
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    const postData = {
-      title,
-      content,
-      imageUrl,
-      category,
-    };
+
   if(title.trim() === "" || content.trim() === "" || category === "" || imageUrl === null) {
     alert("Please fill in all the fields")
   } else {
-      console.log(postData) //testing
     try {
       const formData = new FormData();
       formData.append('file', image);
@@ -67,21 +69,24 @@ export default function PostButton( {coll} ) {
       })
       .then((response) => {
         //using the response location to set the image url in postData
-        console.log(response.data);
+        imageName = response.data.file.filename;
       });
-
+      const postData = {
+        title: title, 
+        content: content, 
+        imageId: imageName, 
+        categoryId: category
+      };
+      console.log(postData);
       // Send the post data to the server
-      await axios.post("https://localhost:7272/api/Posts", {
-        Headers: {
+      await axios.post("https://localhost:7272/api/Posts", postData, {
+        headers: {
           "Access-Control-Allow-Origin": "*",
         },
-        method: "POST",
-        credentials: "include",
-        body: JSON.stringify(postData),
       });
-    } catch (error) {
-      console.error(error);
-    } 
+          } catch (error) {
+            console.error(error);
+          } 
   }
 
 
@@ -147,8 +152,7 @@ export default function PostButton( {coll} ) {
                   <div className="menu popup">
                     {categories.map((categ) => (
                       <div className="menu-item preventSelect" onClick={() => {
-                        setCategory(categ.name);
-                        valtoztat(categ.iconName);
+                        valtoztat(categ.iconName, categ.name);
                         close();
                       }}><FontAwesomeIcon className='smallicon' icon={categ.iconName}/>{categ.name}</div>
                     ))}
