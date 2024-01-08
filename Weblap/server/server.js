@@ -9,9 +9,11 @@ const app = express();
 app.use(cors());
 const PORT = process.env.PORT || 3002;
 
+
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, path.join(__dirname, 'uploads'));
+    cb(null, path.join(__dirname, '../src/uploads'));
   },
   filename: (req, file, cb) => {
     // Generate a unique identifier using uuidv4() and append the file extension

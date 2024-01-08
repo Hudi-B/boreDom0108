@@ -11,7 +11,5 @@ namespace boreDom0108.Models
         [Column(TypeName = "varchar(20)")]
         public string? CategoryName { get; set; }
 
-        [Column(TypeName = "varchar(20)")]
-        public string? IconName { get; set; }
     }
 }

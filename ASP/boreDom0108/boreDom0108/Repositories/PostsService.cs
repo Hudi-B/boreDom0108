@@ -23,14 +23,11 @@ namespace boreDom0108.Repositories
             }
         }
 
-        public async Task<IEnumerable<Posts>> Get(int pageNum = 0)
+        public async Task<IEnumerable<Posts>> Get()
         {
-            int pageSize = 10;
             var posts = await postsDbContext.Posts
                 .Include(p => p.Category) // test
                 .OrderByDescending(p => p.CreatedDate)
-                .Skip((pageNum) * pageSize)
-                .Take(pageSize)
                 .ToListAsync();
             return posts;
         }
@@ -39,6 +36,7 @@ namespace boreDom0108.Repositories
             var postsInCategory = await postsDbContext.Posts
                 .Include(x => x.Category)
                 .Where(x => x.Category.CategoryName.ToLower() == CategoryName.ToLower())
+                .OrderByDescending(p => p.CreatedDate)
                 .ToListAsync();
 
             return postsInCategory;

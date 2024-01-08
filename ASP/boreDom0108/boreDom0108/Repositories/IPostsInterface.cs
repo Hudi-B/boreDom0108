@@ -5,7 +5,7 @@ namespace boreDom0108.Repositories
 {
     public interface IPostsInterface
     {
-        Task<IEnumerable<Posts>> Get(int pageNum);
+        Task<IEnumerable<Posts>> Get();
         Task<List<Posts>> GetByCategoryName(string CategoryName);
         Task<Posts> GetById(Guid Id);
         Task<Posts> Post(CreatePostsDto createPostsDto);

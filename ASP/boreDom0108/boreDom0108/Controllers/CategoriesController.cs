@@ -33,7 +33,6 @@ namespace boreDom0108.Controllers
             {
                 Id = Guid.NewGuid(),
                 CategoryName = createCategoryDto.CategoryName,
-                IconName = createCategoryDto.IconName,
             };
             await postsDbContext.Categories.AddAsync(categ);
             await postsDbContext.SaveChangesAsync();

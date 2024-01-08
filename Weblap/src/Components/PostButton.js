@@ -1,8 +1,8 @@
 import React, { useState, useRef, useContext } from 'react';
 import Popup from 'reactjs-popup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faFeather, faTimes, faList, faCat, faPaintBrush, faRobot, faPersonWalking, faUtensils, faBookAtlas, faLeaf, faMicrochip, faCarSide, faQuestion, faArrowLeft, faArrowUp } from '@fortawesome/free-solid-svg-icons';
-import defaultImage from '../defaultimage.jpg';
+import {faFeather, faTimes, faList, faCat, faPaintBrush, faRobot, faPersonWalking, faUtensils, faBookAtlas, faLeaf, faMicrochip, faCarSide, faQuestion, faArrowLeft, faArrowUp, faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons';
+import defaultImage from '../pictures/defaultimage.jpg';
 
 
 import { DataContext } from './CategoriesContext';
@@ -84,6 +84,8 @@ let imageName = '';
           "Access-Control-Allow-Origin": "*",
         },
       });
+      alert("Post created successfully!");
+      window.location.reload();
           } catch (error) {
             console.error(error);
           } 

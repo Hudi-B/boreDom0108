@@ -24,9 +24,9 @@ namespace boreDom0108.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<Posts>> Get(int pageNum)
+        public async Task<ActionResult<Posts>> Get()
         {
-            return StatusCode(201, await postsInterface.Get(pageNum));
+            return StatusCode(201, await postsInterface.Get());
         }
         [HttpGet("category/{CategoryName}")]
         public async Task<ActionResult<List<Posts>>> GetByCategoryName(string CategoryName)
@@ -47,7 +47,6 @@ namespace boreDom0108.Controllers
 
             if (result == null)
             {
-
                 return NotFound();
             }
 

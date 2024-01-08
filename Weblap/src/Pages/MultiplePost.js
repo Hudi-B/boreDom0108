@@ -1,53 +1,57 @@
-import React, {useContext, useState, useEffect, Suspense, lazy } from 'react';
-import '../Style/Main.css';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import OnePost from '../Components/OnePost';
+import { useParams } from "react-router-dom";
 
 
-import { DataContext } from '../Components/CategoriesContext';
-
-
-const OnePost = lazy(() => import('../Components/OnePost'));
-
-function App() {
+const App = () => {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [page, setPage] = useState(0);
+  const [error, setError] = useState(null);
 
-  const categories = useContext(DataContext);
+  const param = useParams();
+
 
   const fetchData = async () => {
     setIsLoading(true);
-    const response = await axios.get(`https://localhost:7272/APi/posts?pageNum=${page}`, {
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-      }
-    });
-    const data = await response.data;
-    setItems(prevItems => [...prevItems, ...data]);
-    setIsLoading(false);
+    setError(null);
+    setItems([]); // Clear the items state
+  
+  
+    const url = param.category ? 
+    `https://localhost:7272/APi/posts/category/${param.category}` : 
+    'https://localhost:7272/APi/posts';
+
+    try {
+      const response = await axios.get(url, {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        }
+      });
+      setItems(response.data); // Assuming the data is an array of items
+    } catch (error) {
+      setError(error);
+    } finally {
+      setIsLoading(false);
+    }
+  
   };
 
   useEffect(() => {
     fetchData();
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const handleScroll = () => {
-    if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
-    setPage(prevPage => prevPage + 1);
-  };
+  }, [param.category]);
 
   return (
     <div>
-      {items.map(item => (
-        <Suspense fallback={<div>Loading...</div>}>
-          <OnePost postData={item} />
-        </Suspense>
-      ))}
-      {isLoading && <div>Loading more items...</div>}
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : items.length > 0 ? (
+        items.map(item => <OnePost postData={item} />)
+      ) : (
+        <p>No posts found.</p>
+      )}
     </div>
   );
-};
+}
 
 export default App;

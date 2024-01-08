@@ -11,10 +11,9 @@ import { faCat, faPaintBrush, faRobot, faPersonWalking, faUtensils, faBookAtlas,
 
 import PostButton from './Components/PostButton';
 
-import Home from './Pages/MultiplePost';
-import CategorizedPost from './Pages/CategorizedPost';
+import MultiplePost from './Pages/MultiplePost';
 
-import logo from './Ylogo1280px.png';
+import logo from './pictures/Ylogo1280px.png';
 
 let links = [
   {ID: 'Animals', iconName: faCat},
@@ -65,7 +64,7 @@ function App() {
               <ul className={`navbar-nav px-10 sidebarList ${isCollapsed ? 'collapsed' : ''}`}>
                 <li className="nav-item active">
                   <Link to={`/`} className="nav-link">
-                    <img src={logo} alt="logo" className={`logo${isCollapsed ? 'collapsed' : ''}`} />
+                    <img src={logo} alt="logo" className={`logo ${isCollapsed ? 'collapsed' : ''}`} />
                   </Link>
                 </li>
 
@@ -87,9 +86,9 @@ function App() {
           <div className="content">
             {/* Shown pages */}
             <Routes>
-              <Route exact path="/" element={<Home />} />
-              <Route path="*" element={<Home />} />
-              <Route exact path="/Category/:category" element={<CategorizedPost />} />
+              <Route exact path="/" element={<MultiplePost />} />
+              <Route path="*" element={<MultiplePost />} />
+              <Route exact path="/Category/:category" element={<MultiplePost />} />
             </Routes>
           </div>
         </Router>
