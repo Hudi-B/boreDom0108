@@ -111,6 +111,7 @@ textarea::-webkit-scrollbar-thumb {
 
 .inputImage{
     max-height: 200px;
+    max-width: 100%;
     border: none;
     margin-bottom: 3px;
     border-radius: 5%;

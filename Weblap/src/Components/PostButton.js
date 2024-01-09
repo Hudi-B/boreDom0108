@@ -33,7 +33,7 @@ export default function PostButton( {coll} ) {
 let imageName = '';
   const categ = useContext(DataContext);
 
-  let categories = [
+  let links = [
     {name: 'Animals', iconName: faCat},
     {name: 'Art', iconName: faPaintBrush},
     {name: 'Ai', iconName: faRobot},
@@ -118,7 +118,7 @@ let imageName = '';
                     onClick={() => fileInput.current.click()}
                   />
                   )}
-                  <p className='preventSelect'  style={{'color': 'gray'}} ><FontAwesomeIcon icon={faArrowUp}/> Click on the picture to select your own</p>
+                  <p className='preventSelect'  style={{'color': 'gray'}} ><FontAwesomeIcon icon={faArrowUp}/> Click here to select your own picture</p>
               </div>
               <div className='szoveg'>
                 <input 
@@ -152,7 +152,7 @@ let imageName = '';
                 >
                    {(close) => (
                   <div className="menu popup">
-                    {categories.map((categ) => (
+                    {links.map((categ) => (
                       <div className="menu-item preventSelect" onClick={() => {
                         valtoztat(categ.iconName, categ.name);
                         close();

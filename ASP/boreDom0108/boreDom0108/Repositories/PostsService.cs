@@ -44,7 +44,9 @@ namespace boreDom0108.Repositories
 
         public async Task<Posts> GetById(Guid Id)
         {
-            var result = postsDbContext.Posts.SingleOrDefaultAsync(x => x.Id.Equals(Id));
+            var result = postsDbContext.Posts
+                .Include(p => p.Category)
+                .SingleOrDefaultAsync(x => x.Id.Equals(Id));
             return await result;
         }
 

@@ -32,8 +32,6 @@ let links = [
 function App() {
   const [isCollapsed, setCollapsed] = useState(false);
   const [isOverSized, setOverSized] = useState(false);
-  
-  const categories = useContext(DataProvider);
 
   useEffect(() => {
     const handleResize = () => {
@@ -90,7 +88,7 @@ function App() {
               <Route exact path="/" element={<MultiplePost />} />
               <Route path="*" element={<MultiplePost />} />
               <Route exact path="/Category/:category" element={<MultiplePost />} />
-              <Route exact path="/Posts/:id" element={<MultiplePost />} />
+              <Route exact path="/Posts/:id" element={<SinglePost />} />
             </Routes>
           </div>
         </Router>

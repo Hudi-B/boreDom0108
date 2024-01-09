@@ -3,49 +3,40 @@ import axios from 'axios';
 import OnePost from '../Components/OnePost';
 import { useParams } from "react-router-dom";
 
-
 const App = () => {
   const [item, setItem] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
 
   const param = useParams();
-console.log(param);
-
-  const fetchData = async () => {
-    setIsLoading(true);
-    setError(null);
-    setItem([]); // Clear the items state
-  
-  console.log()
-
-    try {
-      const response = await axios.get(`https://localhost:7272/api/Posts/${param.id}`, {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-        }
-      });
-      setItem(response.data); // Assuming the data is an array of items
-    } catch (error) {
-      setError(error);
-    } finally {
-      setIsLoading(false);
-    }
-  
-  };
 
   useEffect(() => {
-    fetchData();
-  }, [param.category]);
+    (async () => {
+      setIsLoading(true);
+      setItem([]);
+      try {
+        const response = await axios.get(`https://localhost:7272/api/Posts/${param.id}`, {
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+          }
+        });
+        setItem(response.data);
+      } catch (error) {
+        console.log(error)
+      } finally {
+        setIsLoading(false);
+      }
+    
+    })();
+  }, [param.id]);
 
   return (
     <div>
       {isLoading ? (
         <p>Loading...</p>
-      ) : item !== null ? (
+      ) : item.length !== 0 ? (
         <OnePost postData={item} singular={true}/>
       ) : (
-        <p>No posts found.</p>
+        <p>No posts found with this ID.</p>
       )}
     </div>
   );
