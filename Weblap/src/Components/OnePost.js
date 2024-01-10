@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import '../Style/Main.css';
 import '../Style/Posts.css';
 import defaultImage from '../pictures/defaultimage.jpg';
@@ -43,7 +43,8 @@ export default function OnePost({postData,singular}) {
         .then((response) => {
             console.log(response)
         });
-        window.location.reload();
+        alert(`Post has been deleted succesfully! You will be redirected to the home page.`);
+        useNavigate(-1);
         } catch (error) {
           console.error(error);
         } 
@@ -66,7 +67,7 @@ export default function OnePost({postData,singular}) {
     }, [postData.imageId]);
 
   return (
-    <div className="post-container">
+    <div className={`post-container`}>
       <div className='image-icon-container  preventSelect'>
         <FontAwesomeIcon icon={icon} className='post-icon' /> 
 
