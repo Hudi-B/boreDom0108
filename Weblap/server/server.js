@@ -1,6 +1,7 @@
 const express = require('express');
 const multer = require('multer');
 const cors = require('cors');
+const fs = require('fs/promises');
 
 const path = require('path');
 const { v4: uuidv4 } = require('uuid'); // Import the uuid module
@@ -42,6 +43,40 @@ app.post('/upload', upload.single('file'), (req, res) => {
     return res.status(200).json({ file: fileDetails });
   } catch (error) {
     console.error('Error during file upload:', error);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.put('/upload', upload.single('file'), (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: 'No file uploaded' });
+    }
+  } catch (error) {
+    
+  }
+});
+
+app.delete('/delete/:filename', async (req, res) => {
+  const { filename } = req.params;
+
+  try {
+    const filePath = path.resolve(__dirname, '../src/uploads/', filename);
+    // Check if the file exists
+    await fs.access(filePath);
+
+    // Delete the file
+    await fs.unlink(filePath);
+
+    return res.status(200).json({ message: 'File deleted successfully' });
+  } catch (error) {
+    console.error('Error during file deletion:', error);
+    
+    if (error.code === 'ENOENT') {
+      // File not found
+      return res.status(404).json({ error: 'File not found' });
+    }
+
     return res.status(500).json({ error: 'Internal server error' });
   }
 });

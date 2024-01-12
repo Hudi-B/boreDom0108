@@ -67,8 +67,16 @@
     margin: 3px;
   }
 .postButton.editButton{
-background-color: blue;
+    background-color: #093000;
+}
+
+.postButton.editButton:hover{
+    background-color: #146d00;
 }
 .postButton.deleteButton{
-background-color: rgb(170,0,0);
+background-color: rgb(131, 3, 3);
+}
+
+.postButton.deleteButton:hover{
+    background-color: rgb(204, 2, 2);
 }

@@ -1,13 +1,9 @@
 import React, { useState, useRef, useContext } from 'react';
 import Popup from 'reactjs-popup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faFeather, faTimes, faList, faCat, faPaintBrush, faRobot, faPersonWalking, faUtensils, faBookAtlas, faLeaf, faMicrochip, faCarSide, faQuestion, faArrowLeft, faArrowUp, faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons';
+import {faFeather, faTimes, faList, faCat, faPaintBrush, faRobot, faPersonWalking, faUtensils, faBookAtlas, faLeaf, faMicrochip, faCarSide, faQuestion, faArrowUp} from '@fortawesome/free-solid-svg-icons';
 import defaultImage from '../pictures/defaultimage.jpg';
-
-
 import { DataContext } from './CategoriesContext';
-
-
 import axios from 'axios';
 
 export default function PostButton( {coll} ) {
@@ -101,6 +97,7 @@ let imageName = '';
         <div className='bigBox' onClick={close}>
           <div className='inputBox' onClick={(event) => event.stopPropagation()} style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}>
             <FontAwesomeIcon onClick={close} className='closeIcon' icon={faTimes} />
+            <h1 className='title'>Create a new post</h1>
             <form className='form' onSubmit={handleSubmit}>
               <div className='imageInputDiv'>
                 <input

@@ -1,5 +1,5 @@
 import {BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DataProvider } from './Components/CategoriesContext';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,6 +13,7 @@ import PostButton from './Components/PostButton';
 
 import MultiplePost from './Pages/MultiplePost';
 import SinglePost from './Pages/SinglePost';
+import EditPost from './Pages/EditPost';
 
 import logo from './pictures/Ylogo1280px.png';
 
@@ -27,7 +28,6 @@ let links = [
   {ID: 'Technology', iconName: faMicrochip},
   {ID: 'Vehicles', iconName: faCarSide},
 ]
-
 
 function App() {
   const [isCollapsed, setCollapsed] = useState(false);
@@ -89,6 +89,7 @@ function App() {
               <Route path="*" element={<MultiplePost />} />
               <Route exact path="/Category/:category" element={<MultiplePost />} />
               <Route exact path="/Posts/:id" element={<SinglePost />} />
+              <Route exact path="/Edit/:id" element={<EditPost />} />
             </Routes>
           </div>
         </Router>
